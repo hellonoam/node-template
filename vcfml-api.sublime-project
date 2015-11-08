@@ -1,0 +1,31 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.log",
+				"*.sublime-workspace",
+				"*.pid",
+				".tags",
+				".tags_sorted_by_file"
+			],
+			"folder_exclude_patterns":
+			[
+				"node_modules",
+				".tmp*",
+				"dist",
+				"coverage",
+				"log"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"FuzzyFilePath":
+		{
+		}
+	}
+}
