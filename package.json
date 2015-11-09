@@ -8,7 +8,7 @@
     "test-watch": "node_modules/.bin/mocha -w"
   },
   "engines": {
-    "node": "5.0.0"
+    "node": "4.2.2"
   },
   "author": "",
   "license": "ISC",
