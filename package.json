@@ -7,6 +7,9 @@
     "test": "node_modules/.bin/mocha",
     "test-watch": "node_modules/.bin/mocha -w"
   },
+  "engines": {
+    "node": "5.0.0"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
