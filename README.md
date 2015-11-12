@@ -1,6 +1,6 @@
 # VCFML
 
-## Insall
+## Install
 
   npm install
   npm install -g gulp
