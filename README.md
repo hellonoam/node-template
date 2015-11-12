@@ -2,8 +2,8 @@
 
 ## Install
 
-  npm install
-  npm install -g gulp
+    npm install
+    npm install -g gulp
 
 ## Server
 
