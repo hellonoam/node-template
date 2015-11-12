@@ -1,6 +1,7 @@
+'use strict';
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-    return queryInterface.createTable('Products', {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.createTable('Categories', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -16,8 +17,8 @@ module.exports = {
       picture: {
         type: Sequelize.STRING
       },
-      description: {
-        type: Sequelize.TEXT
+      data: {
+        type: Sequelize.JSON
       },
       createdAt: {
         allowNull: false,
@@ -28,10 +29,10 @@ module.exports = {
         type: Sequelize.DATE
       }
     }).then(function () {
-      return queryInterface.addIndex('Products', ['slug'], { indicesType: 'UNIQUE' })
+      return queryInterface.addIndex('Categories', ['slug'], { indicesType: 'UNIQUE' })
     })
   },
-  down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('Products')
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable('Categories');
   }
-}
+};
