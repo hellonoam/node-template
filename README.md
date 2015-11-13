@@ -30,8 +30,11 @@
     createdb vcfml_test
 
     node_modules/.bin/sequelize db:migrate
-    node_modules/.bin/sequelize db:seed  
+    gulp db:seed
 
+### Reset DB (erase everything and recreate tables)
+
+    node_modules/.bin/sequelize db:migrate:undo:all
 
 ### Viewing DB
 

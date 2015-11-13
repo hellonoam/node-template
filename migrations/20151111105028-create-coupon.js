@@ -6,19 +6,28 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       productId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT,
+        allowNull: false
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       slug: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       picture: {
         type: Sequelize.STRING
+      },
+      description: {
+        type: Sequelize.TEXT
+      },
+      instructions: {
+        type: Sequelize.TEXT
       },
       couponCode: {
         type: Sequelize.STRING
@@ -50,6 +59,8 @@ module.exports = {
       }
     }).then(function () {
       return queryInterface.addIndex('Coupons', ['slug'], { indicesType: 'UNIQUE' })
+    }).then(function () {
+      return queryInterface.sequelize.query('ALTER SEQUENCE "Coupons_id_seq" RESTART WITH 2000000001;')
     })
   },
   down: function(queryInterface, Sequelize) {

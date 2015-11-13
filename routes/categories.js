@@ -7,7 +7,7 @@ import { Category } from '../models'
 router.get('/', async (req, res, next) => {
   const categories = await Category.findAll()
 
-  res.json(categories.map(c => c.get({role: 'default'})))
+  res.json(categories)
 })
 
 export default router

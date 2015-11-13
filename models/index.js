@@ -1,4 +1,3 @@
-import ssaclAttributeRoles from 'ssacl-attribute-roles'
 import fs from 'fs'
 import path from 'path'
 import Sequelize from 'sequelize'
@@ -17,14 +16,11 @@ else {
   sequelize = new Sequelize(config.database, config.username, config.password, config)
 }
 
-ssaclAttributeRoles(sequelize)
-
 fs
   .readdirSync(__dirname)
   .filter(file => file.slice(-3) === '.js' && file.indexOf('.') !== 0 && file !== basename)
   .forEach(file => {
     var model = sequelize['import'](path.join(__dirname, file))
-    ssaclAttributeRoles(model)
     db[model.name] = model
   })
 
