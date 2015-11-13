@@ -6,15 +6,24 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
-      productId: {
+      itemId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
-      categoryeId: {
+      itemType: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
+      },
+      categoryId: {
+        allowNull: false,
+        type: Sequelize.BIGINT
+      },
+      position: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        defaultValue: 1
       },
       createdAt: {
         allowNull: false,
@@ -27,7 +36,7 @@ module.exports = {
     }).then(function () {
       return queryInterface.addIndex(
         'Categorizations',
-        ['productId', 'categoryeId'],
+        ['itemId', 'itemType', 'categoryId'],
         { indicesType: 'UNIQUE' }
       )
     })

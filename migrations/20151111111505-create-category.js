@@ -6,13 +6,15 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       slug: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       picture: {
         type: Sequelize.STRING
@@ -30,6 +32,8 @@ module.exports = {
       }
     }).then(function () {
       return queryInterface.addIndex('Categories', ['slug'], { indicesType: 'UNIQUE' })
+    }).then(function () {
+      return queryInterface.sequelize.query('ALTER SEQUENCE "Categories_id_seq" RESTART WITH 3000000001;')
     })
   },
   down: function(queryInterface, Sequelize) {
