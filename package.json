@@ -27,6 +27,7 @@
     "babel": "^5.8.23",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "express-async-wrap": "^1.0.0",
     "hashids": "^1.0.2",
     "lodash": "^3.10.1",
     "model-presenter": "^0.2.4",

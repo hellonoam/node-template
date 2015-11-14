@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import express from 'express'
 import favicon from 'serve-favicon'
 
@@ -6,6 +7,7 @@ import { Product } from './models'
 
 import bodyParser from 'body-parser'
 import logger from 'morgan'
+import wrap from 'express-async-wrap'
 
 import * as routes from './routes'
 
@@ -18,7 +20,7 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-Object.keys(routes).forEach(k => { if (k !== 'default') app.use(`/${k}`, routes[k]) })
+_(routes).chain().keys().pull('default').forEach(k => app.use(`/${k}`, routes[k])).value()
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -42,7 +44,7 @@ app.use((req, res, next) => {
 if (app.get('env') === 'development') {
   app.use((err, req, res, next) => {
     res.status(err.status || 500)
-    res.render('error', {
+    res.json({
       message: err.message,
       error: err
     })
@@ -53,7 +55,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use((err, req, res, next) => {
   res.status(err.status || 500)
-  res.render('error', {
+  res.json({
     message: err.message,
     error: {}
   })
