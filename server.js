@@ -1,4 +1,5 @@
 import express from 'express'
+import favicon from 'serve-favicon'
 
 import models from './models'
 import { Product } from './models'
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 3041
 
 const app = express()
 
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
