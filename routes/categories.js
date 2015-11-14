@@ -22,7 +22,7 @@ router.get('/:categoryId', async (req, res, next) => {
 router.get('/:categoryId/coupons', async (req, res, next) => {
   const category = await Category.findOne({ 'id': req.param.categoryId })
 
-  res.json(CouponPresenter.present(category.coupons, 'default'))
+  res.json(CouponPresenter.present(await category.getCoupons(), 'default'))
 })
 
 
