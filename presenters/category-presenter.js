@@ -6,7 +6,7 @@ const CategoryPresenter = createPresenter({
 
   strategies: {
     default: {
-      whitelist: ['id', 'name'],
+      whitelist: ['name', 'slug', 'picture'],
       customAttributes: []
     }
   }
