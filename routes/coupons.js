@@ -14,7 +14,6 @@ router.get('/', async (req, res, next) => {
   res.json(CouponPresenter.present(coupons, 'default'))
 })
 
-
 router.get('/:couponId', async (req, res, next) => {
   const coupon = await Coupon.findOne({ 'id': req.param.couponId })
 
