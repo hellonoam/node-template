@@ -5,8 +5,6 @@ import { Category } from '../models'
 import presenters from '../presenters'
 import { CategoryPresenter, CouponPresenter } from '../presenters'
 
-console.log(Object.keys(presenters));
-
 router.get('/', async (req, res, next) => {
   const categories = await Category.findAll()
 

@@ -5,9 +5,6 @@ import { Coupon } from '../models'
 import presenters from '../presenters'
 import { CouponPresenter } from '../presenters'
 
-
-console.log(Object.keys(presenters));
-
 router.get('/', async (req, res, next) => {
   const coupons = await Coupon.findAll()
 
@@ -20,4 +17,4 @@ router.get('/:couponId', async (req, res, next) => {
   res.json(CouponPresenter.present(coupon, 'default'))
 })
 
-export default router;
+export default router
