@@ -13,4 +13,11 @@ router.get('/', async (req, res, next) => {
   res.json(CategoryPresenter.present(categories, 'default'))
 })
 
+
+router.get('/:categoryId', async (req, res, next) => {
+  const category = await Category.findOne({ 'id': req.param.categoryId })
+
+  res.json(CategoryPresenter.present(category, 'default'))
+})
+
 export default router

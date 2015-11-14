@@ -6,7 +6,7 @@ const CouponPresenter = createPresenter({
 
   strategies: {
     default: {
-      whitelist: ['productId', 'title', 'slug', 'picture', 'description', 'instructions',
+      whitelist: ['id', 'productId', 'title', 'slug', 'picture', 'description', 'instructions',
       			  'couponCode', 'couponWebUrl', 'couponIosUrl', 'couponAndroidUrl'],
       customAttributes: []
     }

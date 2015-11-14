@@ -15,4 +15,10 @@ router.get('/', async (req, res, next) => {
 })
 
 
+router.get('/:couponId', async (req, res, next) => {
+  const coupon = await Coupon.findOne({ 'id': req.param.couponId })
+
+  res.json(CouponPresenter.present(coupon, 'default'))
+})
+
 export default router;
